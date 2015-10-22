@@ -56,6 +56,4 @@ using (G:Vect n Ty)
                          (Var Stop)))
 
 main : IO ()
-main = do putStr "Enter a number: "
-          x <- getLine
-          printLn (interp [] fact (cast x))
+main = putStr "Enter a number: " *> getLine >>= printLn . (interp [] fact ) . cast
